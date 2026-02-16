@@ -43,7 +43,7 @@ cell_cfg:
     nof_ul_slots: 3
     nof_ul_symbols: 4
   pdsch:
-    min_ue_mcs: 25                                                # for ue 1 because it somehow only goes up to 15
+    #min_ue_mcs: 25                                                # for ue 1 because it somehow only goes up to 15
     mcs_table: qam256
   pusch:
     mcs_table: qam256
