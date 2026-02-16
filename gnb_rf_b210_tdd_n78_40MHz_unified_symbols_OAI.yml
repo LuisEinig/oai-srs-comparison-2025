@@ -4,8 +4,8 @@
 
 cu_cp:
   amf:
-    addr: 192.168.1.254                                             # The address or hostname of the AMF.
-    bind_addr: 192.168.1.1      				# A local IP that the gNB binds to for>
+    addr: 127.0.1.100                                            # The address or hostname of the AMF.
+    bind_addr: 127.0.0.1      				# A local IP that the gNB binds to for>
     supported_tracking_areas:
       - tac: 1
         plmn_list:
@@ -56,12 +56,18 @@ log:
   all_level: warning                                              # Logging level applied to all layers.
 
 pcap:
-  mac_enable: disable                                             # Set to true to enable MAC-layer PCAP>
+  mac_enable: false                                             # Set to true to enable MAC-layer PCAP>
   mac_filename: /tmp/gnb_mac.pcap                                 # Path where the MAC PCAP is stored.
-  ngap_enable: disable                                            # Set to true to enable NGAP PCAPs.
+  ngap_enable: false                                            # Set to true to enable NGAP PCAPs.
   ngap_filename: /tmp/gnb_ngap.pcap                               # Path where the NGAP PCAP is stored.
 
 metrics:
   autostart_stdout_metrics: true       
-  enable_json_metrics: true
+  enable_json: true                    # doesn't seem to work anymore udp port 55555
+  enable_log: true
+  enable_verbose: true
 
+remote_control:
+  enabled: true                        # Optional BOOLEAN (false). Enables the remote control feature. Supported: [false, true].
+  bind_addr: 127.0.0.1                  # Optional TEXT (127.0.0.1). Sets the local IP address to bind for remote control. Supported: IPv4 address.
+  port: 8001                            # Optional UINT (8001). Sets the port where the remote control server listens for incoming connections. Supported: [0 - 65535].
